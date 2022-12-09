@@ -77,14 +77,31 @@ int main(){
                         users.at(userName)->addTicket(ticket, money, ID);
                         ID++;
                     }
+                    cout << "Your ticket booked with ID: " << ID - 1 << endl;
                 }
             }
         }
         else if(command == "return"){
             int ticketID = stoi(parametrs[1]);
             for(auto user: users){
-                
+                if(user.second->checkIfExists(ticketID)){
+                    user.second->returnTicket(ticketID);
+                    break;
+                }
             }
+        }
+        else if(command == "viewID"){
+            int ticketID = stoi(parametrs[1]);
+            for(auto user: users){
+                if(user.second->checkIfExists(ticketID)){
+                    user.second->view(ticketID);
+                    break;
+                }
+            }
+        }
+        else if (command == "view"){
+            string name = parametrs[1];
+            users.at(name)->view();
         }
     }
 }

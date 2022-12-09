@@ -20,6 +20,8 @@ public:
 
     void returnTicket(int ID){
         money += tickets.at(ID)->returnTicket();
+        delete tickets.at(ID);
+        tickets.erase(ID);
     };
 
     void view(){
