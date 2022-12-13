@@ -5,24 +5,7 @@
 using namespace std;
 int ID = 1;
 
-vector<string> split(const string line, char delim) {
-    vector<string> result;
-    string part = "";
-    for(int i = 0; i < line.length(); i++){
-        if(line[i] != delim && line.length() - 1 != i){
-            part += line[i];
-        }
-        else if(line.length() - 1 == i){
-            part += line[i];
-            result.push_back(part);
-        }
-        else{
-            result.push_back(part);
-            part = "";
-        }
-    }
-    return result;
-};
+vector<string> split(const string line, char delim);
 
 int main(){
     vector<Flight*> flights;
@@ -104,4 +87,29 @@ int main(){
             users.at(name)->view();
         }
     }
+    for(int i = 0; i < flights.size(); i++){
+        delete flights[i];
+    }
+    for(auto user: users){
+        delete user.second;
+    }
 }
+
+vector<string> split(const string line, char delim) {
+    vector<string> result;
+    string part = "";
+    for(int i = 0; i < line.length(); i++){
+        if(line[i] != delim && line.length() - 1 != i){
+            part += line[i];
+        }
+        else if(line.length() - 1 == i){
+            part += line[i];
+            result.push_back(part);
+        }
+        else{
+            result.push_back(part);
+            part = "";
+        }
+    }
+    return result;
+};

@@ -15,6 +15,9 @@ public:
         booked = false;
     };
     int book(){
+        if(booked){
+            throw invalid_argument("Seat already booked");
+        }
         booked = true;
         return price;
     };

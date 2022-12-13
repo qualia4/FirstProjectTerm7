@@ -3,6 +3,7 @@
 #include "Seat.h"
 #include "map"
 #include "vector"
+#include <sstream>
 
 
 class Flight {
@@ -12,7 +13,7 @@ class Flight {
 
 public:
 
-    Flight(string flightInfo){
+    Flight(string flightInfo){ // some data here placed
         this->date = split(flightInfo, ' ')[0];
         this->number = split(flightInfo, ' ')[1];
         int rows = stoi((split(flightInfo, ' ')[2]));

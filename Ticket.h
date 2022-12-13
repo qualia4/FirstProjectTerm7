@@ -1,6 +1,6 @@
-#ifndef FIRSTPROJECT_TICKET_H
-#define FIRSTPROJECT_TICKET_H
+#pragma once
 #include "Flight.h"
+
 
 class Ticket {
     Flight* flight;
@@ -20,5 +20,3 @@ public:
     }
 };
 
-
-#endif
